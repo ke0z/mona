@@ -60,9 +60,9 @@ except:
 		import sys
 		sys.exit(1)
 	except Exception:
-		#import traceback
+		import traceback
 		print("Do not run this script outside of a debugger !")
-		#print traceback.format_exc()
+		print traceback.format_exc()
 		import sys
 		sys.exit(1)
 
@@ -8512,7 +8512,7 @@ class MemoryComparator(object):
 							slices.add(slc)
 
 		for b, values in mappings_by_byte.iteritems():
-			mappings_by_byte[b] = sorted(values.items(), key=lambda value, count : (-count, -len(value)))
+			mappings_by_byte[b] = sorted(values.items(), key=lambda item: (-item[1], -len(item[0])))
 
 		for c in self.get_chunks():
 			dx, dy, xchunk, ychunk = c.dx, c.dy, c.xchunk, c.ychunk
